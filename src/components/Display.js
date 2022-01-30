@@ -11,29 +11,33 @@ function Display() {
     const [data, setData] = useState(list)
 
 
-    const clickHandlerNext=()=>{
-        if(currentItem === data.length-1){
-            return;
+    const functions = {
+      clickHandlerNext: () => {
+        if (currentItem === data.length - 1) {
+          return;
         } else {
-            setCurrentItem(currentItem+1)
+          setCurrentItem(currentItem + 1);
         }
-    }
-    const clickHandlerPrevious=()=>{
-        if(currentItem === 0){
-            return;
+      },
+      clickHandlerPrevious: () => {
+        if (currentItem === 0) {
+          return;
         } else {
-            setCurrentItem(currentItem-1)
+          setCurrentItem(currentItem - 1);
         }
-    }
+      },
 
-    const deleteHandler=()=>{
-        setData(data.filter((item,index)=> index !== currentItem))
-    }
+      deleteHandler: () => {
+        setData(data.filter((item, index) => index !== currentItem));
+      },
+    };
+
+
 
   return (
   <div className='mainDisplay'>
       <ItemDisplay data={data} currentItem = {currentItem}/>
-      <Controls deleteItem={deleteHandler} changeItemNext={clickHandlerNext} changeItemPrevious={clickHandlerPrevious}/>
+      <Controls function={functions}/>
   </div>
 
   )
