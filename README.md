@@ -1,6 +1,11 @@
 # User Directory Project
 
+
+<strong>[See the User Directory Project here](https://senciz.github.io/user-directory/)</strong>
+
 The User Directory shows a list of Users and lists their information. You are able to cycle through the different users using the <em>Next</em> and <em>Previous</em> controls. The ability to <strong>Delete</strong> a user is available.
+
+![User Directory](https://github.com/SenciZ/user-directory/blob/main/public/UserDirectory.png?raw=true)
 
 ## Purpose Of Project
 
