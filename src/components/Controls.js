@@ -1,19 +1,32 @@
-import React from 'react';
-import IndexButton from './IndexButton'
-import ManageButton from './ManageButton'
+import React from "react";
+import IndexButton from "./IndexButton";
+import ManageButton from "./ManageButton";
 
 function Controls(props) {
+  const showModal = () => {
+    const modal = document.getElementById("modal");
+    modal.classList.remove("modalControl");
+  };
   return (
-  <div className='controlsContainer'>
-      <IndexButton changeItem={()=> props.function.clickHandlerPrevious()} direction='< Previous'/>
+    <div className="controlsContainer">
+      <IndexButton
+        changeItem={() => props.function.clickHandlerPrevious()}
+        direction="< Previous"
+      />
       <div>
-      <ManageButton onClickHandler={props.deleteItem} action='Edit'/>
-      <ManageButton onClickHandler={()=>props.function.deleteHandler()} action='Delete'/>
-      <ManageButton onClickHandler={props.deleteItem} action='New'/>
+        <ManageButton onClickHandler={() => showModal()} action="Edit" />
+        <ManageButton
+          onClickHandler={() => props.function.deleteHandler()}
+          action="Delete"
+        />
+        <ManageButton onClickHandler={() => {}} action="New" />
       </div>
-      <IndexButton changeItem={()=> props.function.clickHandlerNext()} direction='Next >'/>
-  </div>
-  )
+      <IndexButton
+        changeItem={() => props.function.clickHandlerNext()}
+        direction="Next >"
+      />
+    </div>
+  );
 }
 
 export default Controls;
