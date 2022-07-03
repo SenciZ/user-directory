@@ -5,6 +5,7 @@ function EditModal(props) {
   const itemId = document.getElementById("itemId");
   //   console.log(itemId.innerText);
   //Fake line of code
+  //new line
   let itemToEdit = props.data;
   console.log(itemToEdit);
   const [input, setInput] = useState({
