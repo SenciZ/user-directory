@@ -9,21 +9,22 @@ function Display() {
   const list = Data;
   const [currentItem, setCurrentItem] = useState(0);
   const [data, setData] = useState(list);
-  const itemId = currentItem + 1;
-
+  console.log(data[currentItem]);
   const functions = {
     clickHandlerNext: () => {
       if (currentItem === data.length - 1) {
         return;
       } else {
-        setCurrentItem(currentItem + 1);
+        console.log(currentItem);
+        setCurrentItem((prev) => prev + 1);
+        console.log(currentItem);
       }
     },
     clickHandlerPrevious: () => {
       if (currentItem === 0) {
         return;
       } else {
-        setCurrentItem(currentItem - 1);
+        setCurrentItem((prev) => prev - 1);
       }
     },
 
@@ -31,18 +32,12 @@ function Display() {
       setData(data.filter((item, index) => index !== currentItem));
     },
 
-    // editHandler: () => {
-    //   const modality = document.getElementById("modal");
-    //   modality.class.remove("modalControl");
-    // },
-
     hideModal: () => {},
 
     editDataItem: (editedItem) => {
       const dataNew = data.slice(0);
       dataNew.splice(currentItem, 1, editedItem);
       setData(dataNew);
-      setCurrentItem(currentItem + 1);
     },
   };
 
@@ -50,8 +45,7 @@ function Display() {
     <div className="mainDisplay">
       <EditModal
         editDataItem={functions.editDataItem}
-        data={data}
-        currentItem={itemId}
+        data={data[currentItem]}
       />
       <ItemDisplay data={data} currentItem={currentItem} />
       <Controls function={functions} />

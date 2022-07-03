@@ -2,9 +2,12 @@ import React from "react";
 import { useState } from "react";
 
 function EditModal(props) {
-  const itemToEdit = props.data[props.currentItem];
+  const itemId = document.getElementById("itemId");
+  //   console.log(itemId.innerText);
+  let itemToEdit = props.data;
+  console.log(itemToEdit);
   const [input, setInput] = useState({
-    id: props.currentItem,
+    id: itemToEdit.id,
     name: { first: itemToEdit.name.first, last: itemToEdit.name.last },
     city: itemToEdit.city,
     country: itemToEdit.country,
@@ -16,10 +19,12 @@ function EditModal(props) {
       itemToEdit.favoriteMovies[2],
     ],
   });
+  console.log(input);
   const editHandler = (e) => {
     e.preventDefault();
     props.editDataItem(input);
     e.target.parentNode.classList.add("modalControl");
+    itemToEdit = props.currentItem + 1;
   };
 
   return (
