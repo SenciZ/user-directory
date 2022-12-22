@@ -64,6 +64,7 @@ const CreateItem = (props) => {
         setTitle('')
         setMissingFields(false)
         setMovie('')
+        setMovies([])
     }
 
     const emptyFields = ()=>{
@@ -92,7 +93,7 @@ const CreateItem = (props) => {
     }
 
     return (
-        <div style={{padding: '20px', backgroundColor: '#fff'}}>
+        <div className={props.classy + ' createItem'}>
             <label>
         First Name:
         <input

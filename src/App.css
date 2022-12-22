@@ -170,6 +170,21 @@ span strong {
   backdrop-filter: blur(6px);
 }
 
-/* .editModal.modalControl {
-  display: none;
-} */
+.createItem {
+  padding-top: 0px;
+  padding-left: 20px;
+  padding-bottom: 0px;
+  display: flex;
+  height: 0px;
+  overflow: hidden;
+  flex-direction: column;
+  background-color: #f2f2f2;
+  transition: all 1000ms ease-in-out;
+  transition-delay: 3000;
+}
+
+.open {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  height: 400px;
+}

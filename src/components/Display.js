@@ -71,7 +71,7 @@ function Display() {
       />}
       <ItemDisplay data={data} currentItem={currentItem} />
       <Controls function={functions} modalIsOpen={ setModalOpen } createItemVisible = { setCreateVisible }/>
-      {create && <CreateItem data={ data } updateList={addItemToList} createItemVisible = { setCreateVisible }/>}
+      <CreateItem classy={!!create && 'open'} data={ data } updateList={addItemToList} createItemVisible = { setCreateVisible }/>
     </div>
   );
 }
