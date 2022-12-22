@@ -9,6 +9,8 @@ const data = [
     favoriteMovies: [
       "That Night in Varennes (Nuit de Varennes, La)",
       "Spy(ies) (Espion(s))",
+      "Klip (Clip)",
+      "Klip (Clip)",
       "Klip (Clip)"
     ]
   },

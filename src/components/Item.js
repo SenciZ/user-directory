@@ -14,9 +14,12 @@ function Item(props) {
       <p><strong>Job Title:</strong> {jobTitle}</p>
       <p><strong>Employer: </strong>{employer}</p>
       <h3 className='favorites'><strong>Favorite Movies:</strong></h3>
-      <ol className='favoritesList'>
-      {item.favoriteMovies.map((item, index)=> <li key={index}>{`${index +1}. ${item}`}</li>)}
-      </ol>
+    {!!item.favoriteMovies && 
+          <ol className='favoritesList'>
+          {item?.favoriteMovies.map((item, index)=> <li key={index}>{`${index +1}. ${item}`}</li>)}
+          </ol>
+    }
+
   </div>;
 }
 

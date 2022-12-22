@@ -4,10 +4,12 @@ import Controls from "./Controls";
 import { useState, useEffect } from "react";
 import Data from "../ObjectData/data";
 import EditModal from "./EditModal";
+import CreateItem from "./CreateItem";
 
 function Display() {
   const list = Data;
   const [showModal, setShowModal] = useState(false)
+  const [create, setCreate] = useState(false)
   const [currentItem, setCurrentItem] = useState(0);
   const [data, setData] = useState(list);
   const functions = {
@@ -28,7 +30,15 @@ function Display() {
     },
 
     deleteHandler: () => {
-      setData(data.filter((item, index) => index !== currentItem));
+      setData(prev => prev.filter((item, index) => index !== currentItem));
+      setCurrentItem(prev => {
+      if(currentItem === 0){
+        return 0;
+      } else if(currentItem === data.length-1) {
+        return prev -1;
+      }
+        return prev;
+      })
     },
 
     hideModal: () => {},
@@ -44,6 +54,14 @@ function Display() {
    setShowModal(prev => !prev)
   }
 
+  const setCreateVisible = () => {
+    setCreate(!create);
+  }
+
+  const addItemToList = (newItem) =>{
+    setData(prev => [...prev, newItem])
+  }
+
   return (
     <div className="mainDisplay">
       {showModal && <EditModal
@@ -52,7 +70,8 @@ function Display() {
         modalIsOpen={ setModalOpen }
       />}
       <ItemDisplay data={data} currentItem={currentItem} />
-      <Controls function={functions} modalIsOpen={ setModalOpen }/>
+      <Controls function={functions} modalIsOpen={ setModalOpen } createItemVisible = { setCreateVisible }/>
+      {create && <CreateItem data={ data } updateList={addItemToList} createItemVisible = { setCreateVisible }/>}
     </div>
   );
 }

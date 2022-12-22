@@ -12,9 +12,7 @@ function EditModal(props) {
     employer: itemToEdit.employer,
     title: itemToEdit.title,
     favoriteMovies: [
-      itemToEdit.favoriteMovies[0],
-      itemToEdit.favoriteMovies[1],
-      itemToEdit.favoriteMovies[2],
+      ...itemToEdit.favoriteMovies
     ],
   });
   console.log(input);

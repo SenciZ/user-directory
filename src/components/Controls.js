@@ -18,7 +18,7 @@ function Controls(props) {
           onClickHandler={() => props.function.deleteHandler()}
           action="Delete"
         />
-        <ManageButton onClickHandler={() => {}} action="New" />
+        <ManageButton onClickHandler={() => props.createItemVisible() } action="New" />
       </div>
       <IndexButton
         changeItem={() => props.function.clickHandlerNext()}
