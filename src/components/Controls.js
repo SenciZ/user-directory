@@ -4,8 +4,7 @@ import ManageButton from "./ManageButton";
 
 function Controls(props) {
   const showModal = () => {
-    const modal = document.getElementById("modal");
-    modal.classList.remove("modalControl");
+    props.modalIsOpen();
   };
   return (
     <div className="controlsContainer">

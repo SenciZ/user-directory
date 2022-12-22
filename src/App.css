@@ -129,7 +129,7 @@ span strong {
   width: 40vw;
   background-color: #e0ff2e;
   position: absolute;
-  z-index: 100;
+  z-index: 999;
   left: calc(50vw - 20vw);
   top: calc(50vh - 20vh);
   display: flex;
@@ -137,6 +137,16 @@ span strong {
   padding: 5rem;
 }
 
-.editModal.modalControl {
-  display: none;
+.overlay {
+  z-index: 5;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: rgba(0,0,0, 0.6);
 }
+
+/* .editModal.modalControl {
+  display: none;
+} */

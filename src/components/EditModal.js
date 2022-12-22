@@ -2,13 +2,8 @@ import React from "react";
 import { useState } from "react";
 
 function EditModal(props) {
-  const itemId = document.getElementById("itemId");
-  //   console.log(itemId.innerText);
-  //Fake line of code
-  //new line
-  // Develop Branch Code
   let itemToEdit = props.data;
-  console.log(itemToEdit);
+  console.log(itemToEdit, '///////');
   const [input, setInput] = useState({
     id: itemToEdit.id,
     name: { first: itemToEdit.name.first, last: itemToEdit.name.last },
@@ -26,11 +21,18 @@ function EditModal(props) {
   const editHandler = (e) => {
     e.preventDefault();
     props.editDataItem(input);
-    e.target.parentNode.classList.add("modalControl");
     itemToEdit = props.currentItem + 1;
+    props.modalIsOpen();
   };
 
+  const cancelHandler = ()=>{
+    props.modalIsOpen();
+  }
+
   return (
+
+    <>
+    <div className="overlay"></div>
     <div id="modal" className="editModal modalControl">
       <label>
         First Name:
@@ -43,7 +45,7 @@ function EditModal(props) {
             });
           }}
           value={input.name.first}
-        ></input>
+          ></input>
       </label>
       <label>
         Last Name:
@@ -56,7 +58,7 @@ function EditModal(props) {
             });
           }}
           value={input.name.last}
-        ></input>
+          ></input>
       </label>
       <label>
         City:
@@ -69,7 +71,7 @@ function EditModal(props) {
             });
           }}
           value={input.city}
-        ></input>
+          ></input>
       </label>
       <label>
         Country:
@@ -82,7 +84,7 @@ function EditModal(props) {
             });
           }}
           value={input.country}
-        ></input>
+          ></input>
       </label>
       <label>
         Employer:
@@ -95,10 +97,12 @@ function EditModal(props) {
             });
           }}
           value={input.employer}
-        ></input>
+          ></input>
       </label>
-      <button onClick={editHandler}>EDIT</button>
+      <button onClick={editHandler}>SAVE</button>
+      <button onClick={cancelHandler}>CANCEL</button>
     </div>
+          </>
   );
 }
 

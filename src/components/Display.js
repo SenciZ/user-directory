@@ -7,17 +7,16 @@ import EditModal from "./EditModal";
 
 function Display() {
   const list = Data;
+  const [showModal, setShowModal] = useState(false)
   const [currentItem, setCurrentItem] = useState(0);
   const [data, setData] = useState(list);
-  console.log(data[currentItem]);
   const functions = {
     clickHandlerNext: () => {
       if (currentItem === data.length - 1) {
         return;
       } else {
-        console.log(currentItem);
-        setCurrentItem((prev) => prev + 1);
-        console.log(currentItem);
+        setCurrentItem(currentItem+1);
+        console.log(currentItem+1);
       }
     },
     clickHandlerPrevious: () => {
@@ -41,14 +40,19 @@ function Display() {
     },
   };
 
+  const setModalOpen = ()=>{
+   setShowModal(prev => !prev)
+  }
+
   return (
     <div className="mainDisplay">
-      <EditModal
+      {showModal && <EditModal
         editDataItem={functions.editDataItem}
         data={data[currentItem]}
-      />
+        modalIsOpen={ setModalOpen }
+      />}
       <ItemDisplay data={data} currentItem={currentItem} />
-      <Controls function={functions} />
+      <Controls function={functions} modalIsOpen={ setModalOpen }/>
     </div>
   );
 }
