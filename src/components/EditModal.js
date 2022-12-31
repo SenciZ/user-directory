@@ -97,6 +97,19 @@ function EditModal(props) {
           value={input.employer}
           ></input>
       </label>
+      <label>
+        Job Title
+        <input
+          type="text"
+          onChange={(e) => {
+            setInput({
+              ...input,
+              title: e.target.value,
+            });
+          }}
+          value={input.title}
+          ></input>
+      </label>
       <button onClick={editHandler}>SAVE</button>
       <button onClick={cancelHandler}>CANCEL</button>
     </div>
